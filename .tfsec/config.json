@@ -1,0 +1,3 @@
+{
+  "exclude": ["aws-cloudfront-enable-logging", "aws-s3-enable-bucket-logging"]
+}
