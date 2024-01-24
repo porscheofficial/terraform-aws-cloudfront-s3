@@ -4,6 +4,8 @@ Terraform module for creating a CloudFront distribution with an S3 origin.
 S3 bucket is encrypted with a KMS key and access is restricted to CloudFront Origin Access Control.
 Certificate for the domain is issued by ACM and validated via DNS.
 
+[![Terraform Security Check](https://github.com/porscheofficial/terraform-aws-cloudfront-s3/actions/workflows/main.yml/badge.svg)](https://github.com/porscheofficial/terraform-aws-cloudfront-s3/actions/workflows/main.yml)
+
 ## Usage
 
 ### Module call for terraform-aws-cloudfront-s3
