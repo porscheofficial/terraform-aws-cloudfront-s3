@@ -1,0 +1,27 @@
+name: Terraform Security Check
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - '.github/PULL_REQUEST_TEMPLATE.md'
+      - 'CONTRIBUTION.md'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Lint and analyse code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2.0.3
+        with:
+          terraform_version: ~> 1.6.5
+      - name: Lint Terraform code
+        run: terraform fmt -check=true -diff=true
+      - name: Scan Terraform code
+        uses: aquasecurity/tfsec-action@v1.0.0
